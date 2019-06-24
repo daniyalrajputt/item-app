@@ -1,28 +1,6 @@
 import React from 'react';
 import './view.css'
 
-let dataObj = {
-    "air": {
-        "plane": [
-            "Boeing 737",
-            "Boeing 747"
-        ],
-        "helicopter": [
-            "Bell",
-            "Eurocopter"
-        ]
-    },
-    "ground": {
-        "car": [
-            "Porsche",
-            "Lamborghini"
-        ],
-        "truck": [
-            "Man",
-            "Volvo"
-        ]
-    }
-}
 
 class ViewTodo extends React.Component {
     constructor(props) {
@@ -36,9 +14,6 @@ class ViewTodo extends React.Component {
             editTodoType: "",
             editTodoModel: "",
             editTodoIndex: "",
-            vehicleGroup: Object.keys(dataObj),
-            // vehicleType: [],
-            // vehicleModel: []
         }
     }
     delete(e) {
@@ -65,6 +40,19 @@ class ViewTodo extends React.Component {
         console.log(this.state.todos[index].name, "this");
 
     }
+    // deleteAll() {
+    //     let deleteArray = JSON.parse(localStorage.getItem('todos'));
+    //     deleteArray.splice(0, deleteArray.length);
+    //     localStorage.setItem('todos', JSON.stringify(deleteArray));
+    //     this.setState({
+    //         // todos: deleteArray,
+    //         todos: JSON.parse(localStorage.getItem('todos'))
+    //     });
+    //     console.log(deleteArray)
+    //     // localStorage.clear();
+    //     // list.splice(0, list.length)
+    // }
+
     inputHandler2(event) {
         this.setState({ editTodoName: event.target.value })
     }
@@ -147,15 +135,15 @@ class ViewTodo extends React.Component {
                                 {/* <input className="form-control" type="text" value={this.state.editTodoId} onChange={this.inputHandler1.bind(this)} /> */}
                                 <input className="form-control" type="text" value={this.state.editTodoName} onChange={this.inputHandler2.bind(this)} />
                                 <input className="form-control" type="text" value={this.state.editTodoStatus} onChange={this.inputHandler3.bind(this)} />
-                                {/* <input className="form-control" type="text" value={this.state.editTodoGroup} onChange={this.inputHandler4.bind(this)} /> */}
-                                <select className="custom-select mr-sm-2" value={this.state.editTodoGroup} onChange={this.inputHandler4.bind(this)}>
+                                <input className="form-control" type="text" value={this.state.editTodoGroup} onChange={this.inputHandler4.bind(this)} />
+                                {/* <select className="custom-select mr-sm-2" disabled={this.state.status1 ? '' : 'disabled' } value={this.state.status2} onChange={this.onValueChange2.bind(this)}>
                                     <option>Select vehicle Model</option>
-                                    {this.state.vehicleGroup.map((data, index) => {
+                                    {this.state.vehicleModel.map((data, index) => {
                                         return (
                                             <option key={index} value={data}>{data}</option>
                                         )
                                     })}
-                                </select>
+                                </select> */}
                                 <input className="form-control" type="text" value={this.state.editTodoType} onChange={this.inputHandler5.bind(this)} />
                                 <input className="form-control" type="text" value={this.state.editTodoModel} onChange={this.inputHandler6.bind(this)} />
 
